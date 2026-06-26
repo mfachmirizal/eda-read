@@ -159,8 +159,20 @@
     <div class="card">
         <h2>4. Pengenalan 'Acks' (Acknowledgment) pada Kafka</h2>
         <p>Dalam sistem EDA, karena komponennya saling lepas, muncul satu masalah penting: <strong>"Bagaimana kita yakin pesan (Event) yang dikirim sudah benar-benar diterima dan tidak hilang?"</strong></p>
-        <p>Bayangkan Anda mengirim paket berharga lewat layanan ekspedisi. Anda pasti menginginkan <strong>"Resi"</strong> atau bukti tanda terima. Di dalam Apache Kafka (yang bertindak sebagai ekspedisi/Broker), konsep bukti terima pengiriman ini disebut sebagai <strong>Acks (Acknowledgment)</strong>.</p>
-        <p>Parameter <code>acks</code> diatur pada sisi <strong>Producer</strong> (pengirim pesan). Pada Kafka, konfigurasinya tidak menggunakan <em>true/false</em>, melainkan menggunakan pilihan "level" keamanan pengiriman:</p>
+        
+        <div class="highlight" style="background-color: #f8fafc; border-left-color: #475569;">
+            <h4 style="margin-top: 0; color: #334155;">📦 Analogi Pengiriman Paket</h4>
+            <p>Untuk memudahkan pemahaman, bayangkan Kafka dan EDA seperti sistem logistik ekspedisi:</p>
+            <ul>
+                <li><strong>Event</strong> = Paket barang yang dikirim.</li>
+                <li><strong>Producer</strong> = Anda (Si pengirim paket).</li>
+                <li><strong>Kafka (Broker)</strong> = Kantor Pos / Gudang Ekspedisi (Tempat paket diserahkan).</li>
+                <li><strong>Consumer</strong> = Orang di rumah tujuan (Penerima paket).</li>
+                <li><strong>Acks</strong> = Jenis layanan <strong>"Resi Bukti Terima"</strong> yang Anda pilih saat menyerahkan paket ke Kantor Pos.</li>
+            </ul>
+        </div>
+
+        <p>Parameter <code>acks</code> diatur pada sisi <strong>Producer</strong> (pengirim pesan). Konfigurasinya tidak menggunakan <em>true/false</em>, melainkan menggunakan pilihan "level" jaminan keamanan pengiriman:</p>
         
         <div class="highlight" style="background-color: #fff1f2; border-left-color: #e11d48;">
             <h4 style="margin-top: 0; color: #be123c;">🚀 acks=0 (Tembak dan Lupakan)</h4>
